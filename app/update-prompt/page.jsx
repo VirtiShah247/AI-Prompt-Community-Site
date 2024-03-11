@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 import Form from "@components/Form";
+export const dynamicParams = false;
 
 export default function UpdatePrompt() {
   const [submitting, setIsSubmitting] = useState(false);
@@ -14,9 +15,11 @@ export default function UpdatePrompt() {
   });
   const { data: session } = useSession();
   const router = useRouter();
-  if(session === undefined){
-    router.push("/");
-  }
+  useEffect(()=> {
+    if(session === undefined){
+      router.push("/");
+    }
+  }, [router, session]);
   const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
 

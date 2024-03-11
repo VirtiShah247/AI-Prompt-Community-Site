@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
@@ -15,9 +15,13 @@ export default function CreatePrompt() {
   });
 
   const router = useRouter();
-  if(session === undefined){
-    router.push("/");
-  }
+  useEffect(()=> {
+    if(session === undefined){
+      router.push("/");
+    }
+  }, [router, session]);
+ 
+  
   const createPrompt = async (event) => {
     event.preventDefault();
     setSubmitting(true);

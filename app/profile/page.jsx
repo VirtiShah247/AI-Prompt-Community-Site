@@ -5,15 +5,17 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import Profile from "@components/Profile";
-
+export const dynamicParams = false;
 
 export default function MyProfile() {
 
   const { data: session } = useSession();
   const router = useRouter();
-  if(session === undefined){
-    router.push("/");
-  }
+  useEffect(()=> {
+    if(session === undefined){
+      router.push("/");
+    }
+  }, [router, session]);
 
   const [posts, setPosts] = useState([]);
 
@@ -28,6 +30,7 @@ export default function MyProfile() {
     if (session?.user.id) fetchPosts();
   }, [session?.user.id]);
 
+  
   const handleEdit = (post) => {
     router.push(`/update-prompt?id=${post._id}`);
   };
