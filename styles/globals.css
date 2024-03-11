@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  background-color: #000000;
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 1;
+  filter: invert(1);
+}
+
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+
+.app {
+  @apply relative z-10 bg-black flex justify-center items-center flex-col mx-auto px-6 sm:px-16;
+}
+.orange_gradient {
+  @apply bg-delete-red bg-clip-text text-transparent hover:bg-delete-red/50 bg-clip-text text-transparent;
+}
+.green_gradient {
+  @apply bg-bluest bg-clip-text text-transparent hover:bg-dark-blue bg-clip-text text-transparent;
+}
+.blue_gradient {
+  @apply bg-dark-blue bg-clip-text text-transparent;
+}
+.black_btn {
+  @apply rounded-full text-black bg-light-blue border border-black py-1.5 px-5 transition-all hover:bg-off-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+}
+
+
+.head_text {
+  @apply mt-5 text-5xl text-yellow font-extrabold leading-[1.15] sm:text-6xl;
+}
+.desc {
+  @apply mt-5 text-lg text-yellow sm:text-xl max-w-2xl;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-off-white py-2.5 font-satoshi pl-5 pr-12 text-sm text-dark-blue shadow-lg font-medium placeholder-gray-700 focus:border-black focus:outline-none focus:ring-0;
+}
+
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-off-white shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+
+.prompt_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
+
+.feed {
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+}
+
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.logo_text {
+  @apply max-sm:hidden font-satoshi font-semibold text-lg text-off-white tracking-wide;
+}
+
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-off-white text-center min-w-[210px] flex flex-col gap-2;
+}
+.dropdown_link {
+  @apply text-sm text-off-white w-full font-inter text-gray-700  hover:text-gray-500 font-medium;
+}
+.prompt_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-off-white bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+.flex-center {
+  @apply flex justify-center items-center;
+}
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
